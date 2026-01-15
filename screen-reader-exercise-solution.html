@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Reader Exercise Solution - Web Accessibility Workshop</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .solution-note {
+        background-color: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+      }
+
+      .solution-note h3 {
+        margin-top: 0;
+        color: #2e7d32;
+      }
+
+      /* Styles for semantic elements to match practice area styling */
+      .practice-area header {
+        background: #3498db;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+
+      .practice-area header h1 {
+        border: none;
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      .practice-area nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 1rem 0;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 4px;
+      }
+
+      .practice-area nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 2rem;
+      }
+
+      .practice-area nav a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: white;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
+        text-decoration: none;
+        color: #2c3e50;
+      }
+
+      .practice-area nav a:hover {
+        background: #e9ecef;
+      }
+
+      .practice-area main {
+        display: block;
+      }
+
+      .practice-area section {
+        margin: 2rem 0;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 4px;
+      }
+
+      .practice-area section h2 {
+        margin-top: 0;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .practice-area form {
+        display: block;
+      }
+
+      .practice-area form > div {
+        margin: 1rem 0;
+      }
+
+      .practice-area label {
+        display: inline-block;
+        width: 150px;
+      }
+
+      .practice-area input[type='text'],
+      .practice-area input[type='email'],
+      .practice-area textarea {
+        padding: 0.5rem;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        width: 200px;
+      }
+
+      .practice-area textarea {
+        min-height: 100px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, sans-serif;
+      }
+
+      .practice-area input[type='checkbox'] {
+        margin-right: 0.5rem;
+      }
+
+      .practice-area button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .practice-area button:hover {
+        background: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="screen-reader-exercise.html" class="back-link"
+      >← Back to Exercise</a
+    >
+    <main>
+      <h1>Exercise 1: Screen Reader Accessibility - Solution</h1>
+
+      <div class="exercise-content">
+        <div class="solution-note">
+          <h3>What's Fixed Here</h3>
+          <p>
+            This page demonstrates the proper semantic HTML structure with
+            accessibility enhancements. Compare it with the original example to
+            see the improvements.
+          </p>
+        </div>
+
+        <section class="example">
+          <h2>Properly Structured Website</h2>
+          <!-- Properly semantic website example -->
+          <div class="practice-area">
+            <header role="banner">
+              <h1>My Website</h1>
+            </header>
+
+            <nav aria-label="Main navigation">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+
+            <main>
+              <section id="home">
+                <h2>Welcome to our page</h2>
+                <p>Here is some important information.</p>
+              </section>
+
+              <section id="about">
+                <h2>Latest Updates</h2>
+                <p>Check out our new features!</p>
+              </section>
+
+              <section id="contact">
+                <h2>Contact Us</h2>
+                <form>
+                  <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" />
+                  </div>
+                  <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" />
+                  </div>
+                  <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message"></textarea>
+                  </div>
+                  <div>
+                    <label for="subscribe">
+                      <input type="checkbox" id="subscribe" name="subscribe" />
+                      Subscribe to Newsletter
+                    </label>
+                  </div>
+                  <button type="submit" aria-label="Submit the contact form">
+                    Submit Form
+                  </button>
+                </form>
+              </section>
+            </main>
+          </div>
+        </section>
+
+        <section class="improvements">
+          <h2>Key Improvements Made</h2>
+          <ul>
+            <li>
+              <strong>Header:</strong> Used semantic
+              <code>&lt;header&gt;</code> element with proper heading hierarchy
+            </li>
+            <li>
+              <strong>Navigation:</strong> Used semantic
+              <code>&lt;nav&gt;</code> element with actual
+              <code>&lt;a&gt;</code> links and aria-label for context
+            </li>
+            <li>
+              <strong>Main Content:</strong> Used semantic
+              <code>&lt;main&gt;</code> and
+              <code>&lt;section&gt;</code> elements with proper heading
+              hierarchy
+            </li>
+            <li>
+              <strong>Form Structure:</strong> Used
+              <code>&lt;form&gt;</code> and <code>&lt;label&gt;</code> elements
+              properly associated with inputs via <code>for</code> and
+              <code>id</code> attributes
+            </li>
+            <li>
+              <strong>Interactive Elements:</strong> Made navigation links
+              clickable with proper <code>&lt;a&gt;</code> tags and converted
+              form submission to a proper <code>&lt;button&gt;</code> element
+              with aria-label
+            </li>
+            <li>
+              <strong>ARIA Labels:</strong> Added <code>aria-label</code> for
+              navigation and button to provide context for screen readers
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

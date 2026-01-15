@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a href="index.html" class="back-link">← Back to Workshop Index</a>
+    <a href="index.html" class="back-link">← Back to Home</a>
     <main>
       <h1>Exercise 3: Tab Trapping and Keyboard Navigation</h1>
       <p>
@@ -75,11 +75,11 @@
     </main>
 
     <script>
-      const modal = document.getElementById("modal");
-      const modalOverlay = document.getElementById("modalOverlay");
-      const openButton = document.getElementById("openModal");
-      const closeButton = document.getElementById("closeModal");
-      const form = document.getElementById("contactForm");
+      const modal = document.getElementById('modal');
+      const modalOverlay = document.getElementById('modalOverlay');
+      const openButton = document.getElementById('openModal');
+      const closeButton = document.getElementById('closeModal');
+      const form = document.getElementById('contactForm');
 
       // Get all focusable elements in the modal
       const getFocusableElements = () => {
@@ -92,7 +92,7 @@
 
       // Handle escape key press
       const handleEscapeKey = (e) => {
-        if (e.key === "Escape") {
+        if (e.key === 'Escape') {
           closeModal();
         }
       };
@@ -107,36 +107,36 @@
         }
 
         // Add event listeners
-        document.addEventListener("keydown", handleTabKey);
-        document.addEventListener("keydown", handleEscapeKey);
+        document.addEventListener('keydown', handleTabKey);
+        document.addEventListener('keydown', handleEscapeKey);
       };
 
       const closeModal = () => {
         modalOverlay.hidden = true;
 
         // Remove event listeners
-        document.removeEventListener("keydown", handleTabKey);
-        document.removeEventListener("keydown", handleEscapeKey);
+        document.removeEventListener('keydown', handleTabKey);
+        document.removeEventListener('keydown', handleEscapeKey);
 
         // Return focus to open button
         openButton.focus();
       };
 
       // Event listeners
-      openButton.addEventListener("click", openModal);
-      closeButton.addEventListener("click", closeModal);
+      openButton.addEventListener('click', openModal);
+      closeButton.addEventListener('click', closeModal);
 
       // Close modal if clicking outside
-      modalOverlay.addEventListener("click", (e) => {
+      modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) {
           closeModal();
         }
       });
 
       // Prevent form submission (for demo purposes)
-      form.addEventListener("submit", (e) => {
+      form.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert("Form submitted! (This is just a demo)");
+        alert('Form submitted! (This is just a demo)');
         closeModal();
       });
     </script>

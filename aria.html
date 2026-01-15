@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a href="index.html" class="back-link">← Back to Workshop Index</a>
+    <a href="index.html" class="back-link">← Back to Home</a>
     <main>
       <h1>Exercise 4: ARIA Labels and Roles</h1>
       <p>
@@ -120,17 +120,17 @@
           events: [
             {
               time: "75'",
-              status: "Corner kick for Royal Lions FC",
+              status: 'Corner kick for Royal Lions FC',
               scores: [2, 1],
             },
             {
               time: "78'",
-              status: "Shot on goal by Crystal Phoenixes!",
+              status: 'Shot on goal by Crystal Phoenixes!',
               scores: [2, 1],
             },
             {
               time: "82'",
-              status: "GOAL! Royal Lions FC equalize!",
+              status: 'GOAL! Royal Lions FC equalize!',
               scores: [2, 2],
             },
           ],
@@ -140,17 +140,17 @@
           events: [
             {
               time: "57'",
-              status: "GOAL! Stellar United take the lead!",
+              status: 'GOAL! Stellar United take the lead!',
               scores: [1, 0],
             },
             {
               time: "63'",
-              status: "Substitution for Atlas Warriors",
+              status: 'Substitution for Atlas Warriors',
               scores: [1, 0],
             },
             {
               time: "68'",
-              status: "GOAL! Atlas Warriors level the score!",
+              status: 'GOAL! Atlas Warriors level the score!',
               scores: [1, 1],
             },
           ],
@@ -160,17 +160,17 @@
           events: [
             {
               time: "90'",
-              status: "GOAL! Thunder City take the lead in stoppage time!",
+              status: 'GOAL! Thunder City take the lead in stoppage time!',
               scores: [4, 3],
             },
             {
               time: "90+2'",
-              status: "Thunder City defending deeply",
+              status: 'Thunder City defending deeply',
               scores: [4, 3],
             },
             {
               time: "90+4'",
-              status: "Full Time! Thunder City win 4-3!",
+              status: 'Full Time! Thunder City win 4-3!',
               scores: [4, 3],
             },
           ],
@@ -209,11 +209,11 @@
         // Update last update time
         const now = new Date();
         const timeString = now.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
         });
-        document.getElementById("lastUpdateTime").textContent = timeString;
+        document.getElementById('lastUpdateTime').textContent = timeString;
 
         currentEvents[matchIndex]++;
       }
@@ -226,11 +226,11 @@
 
       // Initial last update time
       const now = new Date();
-      document.getElementById("lastUpdateTime").textContent =
+      document.getElementById('lastUpdateTime').textContent =
         now.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
         });
     </script>
   </body>

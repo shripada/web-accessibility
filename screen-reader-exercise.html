@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Reader Exercise - Web Accessibility Workshop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="screen-reader.html" class="back-link">← Back to Exercise</a>
+    <main>
+      <h1>Exercise 1: Screen Reader Accessibility - Practice</h1>
+
+      <div class="exercise-content">
+        <section class="example">
+          <h2>Example to Fix</h2>
+          <!-- Non-semantic website example -->
+          <div class="practice-area">
+            <div class="header">
+              <span class="title">My Website</span>
+            </div>
+
+            <div class="nav">
+              <div>Home</div>
+              <div>About</div>
+              <div>Contact</div>
+            </div>
+
+            <div class="main-content">
+              <div class="section">
+                <span class="big-text">Welcome to our page</span>
+                <div class="text">Here is some important information.</div>
+              </div>
+
+              <div class="section">
+                <span class="big-text">Latest Updates</span>
+                <div class="text">Check out our new features!</div>
+              </div>
+
+              <div class="form-container">
+                <div class="form-title">Contact Us</div>
+                <div>
+                  <span>Name:</span>
+                  <input type="text" />
+                </div>
+                <div>
+                  <span>Email:</span>
+                  <input type="text" />
+                </div>
+                <div>
+                  <span>Message:</span>
+                  <input type="text" />
+                </div>
+                <div>
+                  <span>Subscribe to Newsletter</span>
+                  <input type="checkbox" />
+                </div>
+                <div>
+                  <div onclick="alert('Form submitted!')" class="submit-button">
+                    Submit Form
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="solution-link">
+          <h2>Need Help?</h2>
+          <p>
+            <a href="screen-reader-exercise-solution.html"
+              >View the Solution →</a
+            >
+          </p>
+          <p>
+            Check out the solution page to see how the example should be
+            restructured with proper semantic HTML and accessibility features.
+          </p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
