@@ -18,28 +18,72 @@
       <section class="exercise-content">
         <div class="contrast-checker">
           <div class="controls">
-            <div class="control-group">
-              <label for="textColor">Text Color:</label>
-              <input type="color" id="textColor" value="#000000" />
+            <div class="color-controls">
+              <div class="control-group inline">
+                <label for="textColor">Text Color:</label>
+                <div class="color-input-wrapper">
+                  <input
+                    type="color"
+                    id="textColor"
+                    value="#000000"
+                    aria-label="Text color picker"
+                  />
+                  <span
+                    class="color-swatch"
+                    id="textColorSwatch"
+                    aria-hidden="true"
+                  ></span>
+                  <input
+                    type="text"
+                    class="color-hex"
+                    id="textColorHex"
+                    value="#000000"
+                    aria-label="Text color hex value"
+                    maxlength="7"
+                  />
+                </div>
+              </div>
+              <div class="control-group inline">
+                <label for="backgroundColor">Background Color:</label>
+                <div class="color-input-wrapper">
+                  <input
+                    type="color"
+                    id="backgroundColor"
+                    value="#ffffff"
+                    aria-label="Background color picker"
+                  />
+                  <span
+                    class="color-swatch"
+                    id="bgColorSwatch"
+                    aria-hidden="true"
+                  ></span>
+                  <input
+                    type="text"
+                    class="color-hex"
+                    id="bgColorHex"
+                    value="#ffffff"
+                    aria-label="Background color hex value"
+                    maxlength="7"
+                  />
+                </div>
+              </div>
             </div>
-            <div class="control-group">
-              <label for="backgroundColor">Background Color:</label>
-              <input type="color" id="backgroundColor" value="#ffffff" />
-            </div>
-            <div class="control-group">
-              <label for="fontSize">Font Size:</label>
-              <select id="fontSize">
-                <option value="14">14px (Normal)</option>
-                <option value="18">18px (Large)</option>
-                <option value="24">24px (Larger)</option>
-              </select>
-            </div>
-            <div class="control-group">
-              <label for="fontWeight">Font Weight:</label>
-              <select id="fontWeight">
-                <option value="normal">Normal</option>
-                <option value="bold">Bold</option>
-              </select>
+            <div class="text-controls">
+              <div class="control-group inline">
+                <label for="fontSize">Font Size:</label>
+                <select id="fontSize">
+                  <option value="14">14px (Normal)</option>
+                  <option value="18">18px (Large)</option>
+                  <option value="24">24px (Larger)</option>
+                </select>
+              </div>
+              <div class="control-group inline">
+                <label for="fontWeight">Font Weight:</label>
+                <select id="fontWeight">
+                  <option value="normal">Normal</option>
+                  <option value="bold">Bold</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -52,14 +96,209 @@
               <h3>Contrast Ratio: <span id="contrastRatio">21:1</span></h3>
             </div>
             <div class="result-item">
-              <h4>WCAG 2.1 Level AA</h4>
+              <h4>
+                WCAG 2.1 Level AA
+                <span class="threshold">(4.5:1 normal, 3:1 large)</span>
+              </h4>
               <p>Normal Text: <span id="normalAA">✅ Pass</span></p>
               <p>Large Text: <span id="largeAA">✅ Pass</span></p>
             </div>
             <div class="result-item">
-              <h4>WCAG 2.1 Level AAA</h4>
+              <h4>
+                WCAG 2.1 Level AAA
+                <span class="threshold">(7:1 normal, 4.5:1 large)</span>
+              </h4>
               <p>Normal Text: <span id="normalAAA">✅ Pass</span></p>
               <p>Large Text: <span id="largeAAA">✅ Pass</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exercise-content">
+        <h2>Accessible Color Combinations</h2>
+        <p>
+          Here are some carefully selected color combinations that meet WCAG
+          accessibility standards. You can click on any combination to load it
+          into the checker above.
+        </p>
+
+        <div class="color-combinations">
+          <div class="combinations-group">
+            <h3>WCAG AA Combinations (4.5:1 contrast ratio)</h3>
+            <div class="combinations-grid">
+              <div class="combination-item aa">
+                <button
+                  class="combination-preset"
+                  data-text="#000000"
+                  data-bg="#FFFFFF"
+                  aria-label="Load combination: Black text on white background"
+                >
+                  <div
+                    class="combination-preview"
+                    style="color: #000000; background-color: #ffffff"
+                  >
+                    Aa
+                  </div>
+                  <div class="combination-info">
+                    <span class="combo-name">Black on White</span>
+                    <span class="combo-ratio">21:1</span>
+                    <span class="combo-hex">#000000 / #FFFFFF</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="combination-item aa">
+                <button
+                  class="combination-preset"
+                  data-text="#1F4788"
+                  data-bg="#E8F0FE"
+                  aria-label="Load combination: Navy blue text on light blue background"
+                >
+                  <div
+                    class="combination-preview"
+                    style="color: #1f4788; background-color: #e8f0fe"
+                  >
+                    Aa
+                  </div>
+                  <div class="combination-info">
+                    <span class="combo-name">Navy on Light Blue</span>
+                    <span class="combo-ratio">8.2:1</span>
+                    <span class="combo-hex">#1F4788 / #E8F0FE</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="combination-item aa">
+                <button
+                  class="combination-preset"
+                  data-text="#2D5016"
+                  data-bg="#F1F8E9"
+                  aria-label="Load combination: Dark green text on light green background"
+                >
+                  <div
+                    class="combination-preview"
+                    style="color: #2d5016; background-color: #f1f8e9"
+                  >
+                    Aa
+                  </div>
+                  <div class="combination-info">
+                    <span class="combo-name">Dark Green on Light Green</span>
+                    <span class="combo-ratio">8.1:1</span>
+                    <span class="combo-hex">#2D5016 / #F1F8E9</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="combination-item aa">
+                <button
+                  class="combination-preset"
+                  data-text="#5D3A1A"
+                  data-bg="#FFF3E0"
+                  aria-label="Load combination: Dark brown text on light orange background"
+                >
+                  <div
+                    class="combination-preview"
+                    style="color: #5d3a1a; background-color: #fff3e0"
+                  >
+                    Aa
+                  </div>
+                  <div class="combination-info">
+                    <span class="combo-name">Brown on Cream</span>
+                    <span class="combo-ratio">9.5:1</span>
+                    <span class="combo-hex">#5D3A1A / #FFF3E0</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="combinations-group">
+            <h3>WCAG AAA Combinations (7:1 contrast ratio)</h3>
+            <div class="combinations-grid">
+              <div class="combination-item aaa">
+                <button
+                  class="combination-preset"
+                  data-text="#000000"
+                  data-bg="#FFFFFF"
+                  aria-label="Load combination: Black text on white background"
+                >
+                  <div
+                    class="combination-preview"
+                    style="color: #000000; background-color: #ffffff"
+                  >
+                    Aa
+                  </div>
+                  <div class="combination-info">
+                    <span class="combo-name">Black on White</span>
+                    <span class="combo-ratio">21:1</span>
+                    <span class="combo-hex">#000000 / #FFFFFF</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="combination-item aaa">
+                <button
+                  class="combination-preset"
+                  data-text="#0D47A1"
+                  data-bg="#E3F2FD"
+                  aria-label="Load combination: Deep blue text on very light blue background"
+                >
+                  <div
+                    class="combination-preview"
+                    style="color: #0d47a1; background-color: #e3f2fd"
+                  >
+                    Aa
+                  </div>
+                  <div class="combination-info">
+                    <span class="combo-name">Deep Blue on Sky Blue</span>
+                    <span class="combo-ratio">12.6:1</span>
+                    <span class="combo-hex">#0D47A1 / #E3F2FD</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="combination-item aaa">
+                <button
+                  class="combination-preset"
+                  data-text="#1B5E20"
+                  data-bg="#E8F5E9"
+                  aria-label="Load combination: Dark forest green text on very light green background"
+                >
+                  <div
+                    class="combination-preview"
+                    style="color: #1b5e20; background-color: #e8f5e9"
+                  >
+                    Aa
+                  </div>
+                  <div class="combination-info">
+                    <span class="combo-name">Forest Green on Mint</span>
+                    <span class="combo-ratio">13.9:1</span>
+                    <span class="combo-hex">#1B5E20 / #E8F5E9</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="combination-item aaa">
+                <button
+                  class="combination-preset"
+                  data-text="#BF360C"
+                  data-bg="#FFECB3"
+                  aria-label="Load combination: Deep orange text on light yellow background"
+                >
+                  <div
+                    class="combination-preview"
+                    style="color: #bf360c; background-color: #ffecb3"
+                  >
+                    Aa
+                  </div>
+                  <div class="combination-info">
+                    <span class="combo-name">Deep Orange on Yellow</span>
+                    <span class="combo-ratio">7.3:1</span>
+                    <span class="combo-hex">#BF360C / #FFECB3</span>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -75,10 +314,22 @@
       }
 
       .controls {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
         margin-bottom: 2rem;
+      }
+
+      .color-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .text-controls {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
       }
 
       .control-group {
@@ -87,15 +338,92 @@
         gap: 0.5rem;
       }
 
-      .control-group label {
-        font-weight: bold;
+      .control-group.inline {
+        gap: 0.5rem;
       }
 
-      .control-group input,
+      .control-group label {
+        font-weight: bold;
+        font-size: 0.95rem;
+        color: #333;
+      }
+
+      .color-input-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .control-group input[type='color'],
       .control-group select {
+        padding: 0.5rem;
+        border: 2px solid #dee2e6;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: border-color 0.2s ease;
+      }
+
+      .control-group input[type='color'] {
+        width: 50px;
+        height: 40px;
+        border-radius: 4px;
+      }
+
+      .control-group input[type='color']:hover {
+        border-color: #999;
+      }
+
+      .control-group input[type='color']:focus {
+        outline: none;
+        border-color: #0066cc;
+        box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+      }
+
+      .control-group input[type='text'].color-hex {
+        width: 80px;
         padding: 0.5rem;
         border: 1px solid #dee2e6;
         border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.9rem;
+      }
+
+      .control-group input[type='text'].color-hex:focus {
+        outline: none;
+        border-color: #0066cc;
+        box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+      }
+
+      .color-swatch {
+        width: 30px;
+        height: 30px;
+        border: 2px solid #999;
+        border-radius: 4px;
+        display: inline-block;
+        transition: box-shadow 0.2s ease;
+      }
+
+      .color-swatch:hover {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .control-group select {
+        padding: 0.5rem;
+        border: 2px solid #dee2e6;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        transition: border-color 0.2s ease;
+      }
+
+      .control-group select:hover {
+        border-color: #999;
+      }
+
+      .control-group select:focus {
+        outline: none;
+        border-color: #0066cc;
+        box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
       }
 
       .preview {
@@ -127,6 +455,111 @@
       .result-item h4 {
         margin-top: 0;
         margin-bottom: 0.5rem;
+      }
+
+      .result-item h4 .threshold {
+        font-size: 0.85rem;
+        font-weight: normal;
+        color: #666;
+        display: block;
+        margin-top: 0.25rem;
+      }
+
+      .color-combinations {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      .combinations-group h3 {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        color: #333;
+        font-size: 1.2rem;
+        border-bottom: 2px solid #0066cc;
+        padding-bottom: 0.75rem;
+      }
+
+      .combinations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .combination-item {
+        height: 100%;
+      }
+
+      .combination-preset {
+        width: 100%;
+        height: 100%;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 0;
+        cursor: pointer;
+        background: none;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      .combination-preset:hover {
+        border-color: #0066cc;
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+        transform: translateY(-2px);
+      }
+
+      .combination-preset:focus {
+        outline: none;
+        border-color: #0066cc;
+        box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+      }
+
+      .combination-item.aa .combination-preset {
+        border-left: 4px solid #4caf50;
+      }
+
+      .combination-item.aaa .combination-preset {
+        border-left: 4px solid #ff9800;
+      }
+
+      .combination-preview {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        font-weight: 600;
+        min-height: 120px;
+      }
+
+      .combination-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 1rem;
+        background-color: #fafafa;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      .combo-name {
+        font-weight: 600;
+        color: #333;
+        font-size: 0.95rem;
+      }
+
+      .combo-ratio {
+        font-size: 0.85rem;
+        color: #666;
+        font-weight: 500;
+      }
+
+      .combo-hex {
+        font-family: monospace;
+        font-size: 0.8rem;
+        color: #999;
+        text-transform: uppercase;
       }
     </style>
 
@@ -162,7 +595,7 @@
         const textColor = hexToRgb(textColorInput.value);
         const bgColor = hexToRgb(bgColorInput.value);
         const fontSize = parseInt(fontSizeInput.value);
-        const isBold = fontWeightInput.value === "bold";
+        const isBold = fontWeightInput.value === 'bold';
 
         // Calculate luminance for both colors
         const textLuminance = getLuminance(
@@ -189,31 +622,88 @@
         const isLargeText = fontSize >= 18 || (fontSize >= 14 && isBold);
 
         // Update compliance indicators
-        normalAA.textContent = ratio >= 4.5 ? "✅ Pass" : "❌ Fail";
-        largeAA.textContent = ratio >= 3 ? "✅ Pass" : "❌ Fail";
-        normalAAA.textContent = ratio >= 7 ? "✅ Pass" : "❌ Fail";
-        largeAAA.textContent = ratio >= 4.5 ? "✅ Pass" : "❌ Fail";
+        normalAA.textContent = ratio >= 4.5 ? '✅ Pass' : '❌ Fail';
+        largeAA.textContent = ratio >= 3 ? '✅ Pass' : '❌ Fail';
+        normalAAA.textContent = ratio >= 7 ? '✅ Pass' : '❌ Fail';
+        largeAAA.textContent = ratio >= 4.5 ? '✅ Pass' : '❌ Fail';
       }
 
       // Get DOM elements
-      const textColorInput = document.getElementById("textColor");
-      const bgColorInput = document.getElementById("backgroundColor");
-      const fontSizeInput = document.getElementById("fontSize");
-      const fontWeightInput = document.getElementById("fontWeight");
-      const previewText = document.getElementById("previewText");
-      const contrastRatioSpan = document.getElementById("contrastRatio");
-      const normalAA = document.getElementById("normalAA");
-      const largeAA = document.getElementById("largeAA");
-      const normalAAA = document.getElementById("normalAAA");
-      const largeAAA = document.getElementById("largeAAA");
+      const textColorInput = document.getElementById('textColor');
+      const bgColorInput = document.getElementById('backgroundColor');
+      const textColorHex = document.getElementById('textColorHex');
+      const bgColorHex = document.getElementById('bgColorHex');
+      const textColorSwatch = document.getElementById('textColorSwatch');
+      const bgColorSwatch = document.getElementById('bgColorSwatch');
+      const fontSizeInput = document.getElementById('fontSize');
+      const fontWeightInput = document.getElementById('fontWeight');
+      const previewText = document.getElementById('previewText');
+      const contrastRatioSpan = document.getElementById('contrastRatio');
+      const normalAA = document.getElementById('normalAA');
+      const largeAA = document.getElementById('largeAA');
+      const normalAAA = document.getElementById('normalAAA');
+      const largeAAA = document.getElementById('largeAAA');
 
-      // Add event listeners
-      textColorInput.addEventListener("input", updateContrast);
-      bgColorInput.addEventListener("input", updateContrast);
-      fontSizeInput.addEventListener("change", updateContrast);
-      fontWeightInput.addEventListener("change", updateContrast);
+      function updateColorSwatches() {
+        textColorSwatch.style.backgroundColor = textColorInput.value;
+        bgColorSwatch.style.backgroundColor = bgColorInput.value;
+        textColorHex.value = textColorInput.value.toUpperCase();
+        bgColorHex.value = bgColorInput.value.toUpperCase();
+      }
+
+      function isValidHex(hex) {
+        return /^#[0-9A-F]{6}$/i.test(hex);
+      }
+
+      // Add event listeners for color pickers
+      textColorInput.addEventListener('input', () => {
+        updateContrast();
+        updateColorSwatches();
+      });
+      bgColorInput.addEventListener('input', () => {
+        updateContrast();
+        updateColorSwatches();
+      });
+
+      // Add event listeners for hex inputs
+      textColorHex.addEventListener('change', (e) => {
+        if (isValidHex(e.target.value)) {
+          textColorInput.value = e.target.value;
+          updateContrast();
+          updateColorSwatches();
+        } else {
+          updateColorSwatches(); // Reset to valid value
+        }
+      });
+      bgColorHex.addEventListener('change', (e) => {
+        if (isValidHex(e.target.value)) {
+          bgColorInput.value = e.target.value;
+          updateContrast();
+          updateColorSwatches();
+        } else {
+          updateColorSwatches(); // Reset to valid value
+        }
+      });
+
+      fontSizeInput.addEventListener('change', updateContrast);
+      fontWeightInput.addEventListener('change', updateContrast);
+
+      // Add event listeners for color combination presets
+      document.querySelectorAll('.combination-preset').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const textColor = btn.getAttribute('data-text');
+          const bgColor = btn.getAttribute('data-bg');
+          textColorInput.value = textColor;
+          bgColorInput.value = bgColor;
+          updateColorSwatches();
+          updateContrast();
+          // Scroll to preview
+          previewText.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
 
       // Initial update
+      updateColorSwatches();
       updateContrast();
     </script>
   </body>
