@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visually Hidden Content - Web Accessibility Workshop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="index.html" class="back-link">← Back to Exercises</a>
+    <main>
+      <h1>Exercise 7: Visually Hidden Content for Accessibility</h1>
+
+      <div class="exercise-content">
+        <section class="explanation">
+          <h2>What is Visually Hidden Content?</h2>
+          <p>
+            Visually hidden content is text that is hidden from sighted users
+            but remains accessible to screen readers. This technique is useful
+            for providing additional context or labels to icon-only buttons,
+            without cluttering the visual design.
+          </p>
+          <p>
+            The <code>.visually-hidden</code> class uses CSS to remove content
+            from the visual display while keeping it in the DOM and accessible
+            to assistive technologies.
+          </p>
+        </section>
+
+        <section class="example">
+          <h2>Example: Icon-Only Buttons with Hidden Labels</h2>
+
+          <h3>❌ Wrong: Icon buttons without accessible labels</h3>
+          <div class="practice-area">
+            <p>
+              These buttons have no accessible names for screen reader users:
+            </p>
+            <div class="button-container">
+              <button class="icon-button" title="Help">❓</button>
+              <button class="icon-button" title="Settings">⚙️</button>
+            </div>
+            <p class="hint">
+              <strong>Problem:</strong> Screen reader users won't know what
+              these buttons do. The <code>title</code> attribute is not reliably
+              announced by screen readers.
+            </p>
+          </div>
+
+          <h3>✓ Correct: Icon buttons with visually hidden labels</h3>
+          <div class="practice-area">
+            <p>
+              These buttons have both visual icons and screen reader accessible
+              labels:
+            </p>
+            <div class="button-container">
+              <button class="icon-button">
+                ❓
+                <span class="visually-hidden">access help</span>
+              </button>
+              <button class="icon-button">
+                ⚙️
+                <span class="visually-hidden">access settings</span>
+              </button>
+            </div>
+            <p class="hint">
+              <strong>Solution:</strong> Screen reader users now hear "access
+              help" and "access settings" when these buttons are focused.
+              Sighted users see only the icons.
+            </p>
+          </div>
+        </section>
+
+        <section class="improvements">
+          <h2>Key Benefits</h2>
+          <ul>
+            <li>
+              <strong>Screen Reader Accessible:</strong> Assistive technology
+              users get clear, descriptive labels for interactive elements
+            </li>
+            <li>
+              <strong>Clean Visual Design:</strong> Sighted users see only the
+              icons, keeping the interface minimal and modern
+            </li>
+            <li>
+              <strong>Keyboard Accessible:</strong> The hidden text ensures that
+              keyboard navigators understand what each button does
+            </li>
+            <li>
+              <strong>Better Context:</strong> Providing full descriptive text
+              (like "access help" instead of just "help") gives more context in
+              rapid screen reader navigation
+            </li>
+          </ul>
+        </section>
+
+        <section class="code-example">
+          <h2>How the CSS Works</h2>
+          <p>
+            The <code>.visually-hidden</code> class uses several CSS properties:
+          </p>
+          <article>
+            <code>position: absolute;</code> - Removes the element from document
+            flow<br />
+            <code>width: 1px; height: 1px;</code> - Makes it virtually
+            invisible<br />
+            <code>margin: -1px;</code> - Ensures no space is taken up<br />
+            <code>overflow: hidden;</code> - Hides any overflow content<br />
+            <code>white-space: nowrap;</code> - Prevents text wrapping<br />
+            <code>clip: rect(0 0 0 0);</code> - Legacy clipping for older
+            browsers<br />
+            <code>clip-path: inset(50%);</code> - Modern clipping method
+          </article>
+        </section>
+
+        <section class="tips">
+          <h2>Tips</h2>
+          <ul class="tips-list">
+            <li>
+              Use visually-hidden text to provide additional context that
+              sighted users might infer visually (like colors or proximity)
+            </li>
+            <li>
+              Don't use <code>display: none;</code> or
+              <code>visibility: hidden;</code> for accessibility labels - these
+              hide content from screen readers too
+            </li>
+            <li>
+              Test with actual screen readers to ensure your hidden text is
+              properly announced
+            </li>
+            <li>
+              Use descriptive verbs in hidden text (e.g., "open settings"
+              instead of "settings") to clarify what action the button performs
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
