@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARIA Live Regions Solution - Web Accessibility Workshop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="aria.html" class="back-link">← Back to Exercise</a>
+    <main>
+      <h1>Solution: ARIA Live Regions for Sports Scoreboard</h1>
+      <p>
+        Here's how to implement accessible ARIA live regions for dynamic score
+        updates:
+      </p>
+
+      <section class="exercise-content">
+        <div class="scoreboard">
+          <div class="scoreboard-header">
+            <h2>Live Matches (Accessible Version)</h2>
+            <div class="last-update">
+              Last update: <span id="lastUpdateTime">Just now</span>
+            </div>
+          </div>
+          <p class="hint">
+            This version includes proper aria-live regions. Test with a screen
+            reader to hear announcements!
+          </p>
+
+          <div class="match-container">
+            <!-- Match 1 -->
+            <div class="match">
+              <div class="match-header">
+                <span class="league">Premier League</span>
+                <span class="match-time">72'</span>
+              </div>
+              <div class="teams">
+                <div class="team">
+                  <span class="team-name">Crystal Phoenixes</span>
+                  <span
+                    class="score"
+                    id="team1-score"
+                    aria-live="polite"
+                    aria-label="Crystal Phoenixes score"
+                    >2</span
+                  >
+                </div>
+                <div class="team">
+                  <span class="team-name">Royal Lions FC</span>
+                  <span
+                    class="score"
+                    id="team2-score"
+                    aria-live="polite"
+                    aria-label="Royal Lions FC score"
+                    >1</span
+                  >
+                </div>
+              </div>
+              <div
+                class="match-status"
+                id="match1-status"
+                aria-live="assertive"
+                aria-atomic="true"
+              >
+                Latest: Goal! Crystal Phoenixes score in the 70th minute!
+              </div>
+            </div>
+          </div>
+
+          <div class="instructions">
+            <h3>Key ARIA Attributes</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Attribute</th>
+                  <th>Value</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>aria-live</code></td>
+                  <td><code>polite</code></td>
+                  <td>Announce score changes when screen reader pauses</td>
+                </tr>
+                <tr>
+                  <td><code>aria-live</code></td>
+                  <td><code>assertive</code></td>
+                  <td>Interrupt immediately for match events</td>
+                </tr>
+                <tr>
+                  <td><code>aria-atomic</code></td>
+                  <td><code>true</code></td>
+                  <td>Read entire status message for full context</td>
+                </tr>
+                <tr>
+                  <td><code>aria-label</code></td>
+                  <td>Team name + score</td>
+                  <td>Clarify what the score belongs to</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>Best Practices Applied</h3>
+            <ul>
+              <li>
+                <strong>Scores use "polite":</strong> Non-urgent updates that
+                don't need to interrupt
+              </li>
+              <li>
+                <strong>Status uses "assertive":</strong> Critical events like
+                goals need immediate attention
+              </li>
+              <li>
+                <strong>aria-atomic on status:</strong> Ensures full sentence is
+                read for context
+              </li>
+              <li>
+                <strong>Match-time not announced:</strong> Visual-only indicator
+                that doesn't need screen reader output
+              </li>
+              <li>
+                <strong>aria-label on scores:</strong> Clarifies which team's
+                score is being announced
+              </li>
+            </ul>
+
+            <h3>Testing with Screen Readers</h3>
+            <p>Try these screen readers to test the announcements:</p>
+            <ul>
+              <li><strong>macOS:</strong> VoiceOver (Cmd + F5)</li>
+              <li>
+                <strong>Windows:</strong> NVDA (free) or JAWS (commercial)
+              </li>
+              <li><strong>Linux:</strong> Orca</li>
+            </ul>
+            <p>
+              Updates happen every 15 seconds. Enable your screen reader and
+              wait for announcements!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Simulated match events
+      const matchEvents = [
+        {
+          match: 1,
+          events: [
+            {
+              time: "75'",
+              status: 'Corner kick for Royal Lions FC',
+              scores: [2, 1],
+            },
+            {
+              time: "78'",
+              status: 'Shot on goal by Crystal Phoenixes!',
+              scores: [2, 1],
+            },
+            {
+              time: "82'",
+              status: 'GOAL! Royal Lions FC equalize!',
+              scores: [2, 2],
+            },
+          ],
+        },
+      ];
+
+      // Keep track of current event for each match
+      const currentEvents = [0];
+
+      // Update a specific match
+      function updateMatch(matchIndex) {
+        const match = matchEvents[matchIndex];
+        const eventIndex = currentEvents[matchIndex];
+
+        if (eventIndex >= match.events.length) return;
+
+        const event = match.events[eventIndex];
+
+        // Update time
+        document.querySelector('.match-time').textContent = event.time;
+
+        // Update status
+        document.getElementById('match1-status').textContent =
+          `Latest: ${event.status}`;
+
+        // Update scores
+        document.getElementById('team1-score').textContent = event.scores[0];
+        document.getElementById('team2-score').textContent = event.scores[1];
+
+        // Update last update time
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+        });
+        document.getElementById('lastUpdateTime').textContent = timeString;
+
+        currentEvents[matchIndex]++;
+      }
+
+      // Update match every 15 seconds
+      setInterval(() => {
+        const matchIndex = 0;
+        updateMatch(matchIndex);
+      }, 15000);
+
+      // Initial last update time
+      const now = new Date();
+      document.getElementById('lastUpdateTime').textContent =
+        now.toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+        });
+    </script>
+  </body>
+</html>

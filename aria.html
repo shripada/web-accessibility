@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,60 +38,17 @@
               <div class="teams">
                 <div class="team">
                   <span class="team-name">Crystal Phoenixes</span>
-                  <span class="score" id="team1-score">2</span>
+                  <span class="score" id="team1-score" aria-label="Crystal Phoenixes score">2</span>
                 </div>
                 <div class="team">
                   <span class="team-name">Royal Lions FC</span>
-                  <span class="score" id="team2-score">1</span>
+                  <span class="score" id="team2-score" aria-label="Royal Lions FC score">1</span>
                 </div>
               </div>
               <div class="match-status" id="match1-status">
                 Latest: Goal! Crystal Phoenixes score in the 70th minute!
               </div>
             </div>
-
-            <!-- Match 2 -->
-            <div class="match">
-              <div class="match-header">
-                <span class="league">Champions Cup</span>
-                <span class="match-time">54'</span>
-              </div>
-              <div class="teams">
-                <div class="team">
-                  <span class="team-name">Stellar United</span>
-                  <span class="score" id="team3-score">0</span>
-                </div>
-                <div class="team">
-                  <span class="team-name">Atlas Warriors</span>
-                  <span class="score" id="team4-score">0</span>
-                </div>
-              </div>
-              <div class="match-status" id="match2-status">
-                Latest: Yellow card shown to Atlas Warriors defender
-              </div>
-            </div>
-
-            <!-- Match 3 -->
-            <div class="match">
-              <div class="match-header">
-                <span class="league">Europa Division</span>
-                <span class="match-time">89'</span>
-              </div>
-              <div class="teams">
-                <div class="team">
-                  <span class="team-name">Thunder City</span>
-                  <span class="score" id="team5-score">3</span>
-                </div>
-                <div class="team">
-                  <span class="team-name">Coastal Dynamos</span>
-                  <span class="score" id="team6-score">3</span>
-                </div>
-              </div>
-              <div class="match-status" id="match3-status">
-                Latest: 4 minutes of added time announced
-              </div>
-            </div>
-          </div>
 
           <div class="instructions">
             <h3>Making this Accessible</h3>
@@ -107,6 +64,9 @@
               <li>Consider which elements should be "polite" vs "assertive"</li>
               <li>Test with a screen reader to verify the experience</li>
             </ol>
+            <p>
+              <a href="aria-solution.html" class="solution-link">View Solution →</a>
+            </p>
           </div>
         </div>
       </section>
@@ -135,50 +95,10 @@
             },
           ],
         },
-        {
-          match: 2,
-          events: [
-            {
-              time: "57'",
-              status: 'GOAL! Stellar United take the lead!',
-              scores: [1, 0],
-            },
-            {
-              time: "63'",
-              status: 'Substitution for Atlas Warriors',
-              scores: [1, 0],
-            },
-            {
-              time: "68'",
-              status: 'GOAL! Atlas Warriors level the score!',
-              scores: [1, 1],
-            },
-          ],
-        },
-        {
-          match: 3,
-          events: [
-            {
-              time: "90'",
-              status: 'GOAL! Thunder City take the lead in stoppage time!',
-              scores: [4, 3],
-            },
-            {
-              time: "90+2'",
-              status: 'Thunder City defending deeply',
-              scores: [4, 3],
-            },
-            {
-              time: "90+4'",
-              status: 'Full Time! Thunder City win 4-3!',
-              scores: [4, 3],
-            },
-          ],
-        },
       ];
 
       // Keep track of current event for each match
-      const currentEvents = [0, 0, 0];
+      const currentEvents = [0];
 
       // Update a specific match
       function updateMatch(matchIndex) {
@@ -188,23 +108,17 @@
         if (eventIndex >= match.events.length) return;
 
         const event = match.events[eventIndex];
-        const matchNum = matchIndex + 1;
 
         // Update time
-        document.querySelector(
-          `.match:nth-child(${matchNum}) .match-time`
-        ).textContent = event.time;
+        document.querySelector('.match-time').textContent = event.time;
 
         // Update status
-        document.getElementById(
-          `match${matchNum}-status`
-        ).textContent = `Latest: ${event.status}`;
+        document.getElementById('match1-status').textContent =
+          `Latest: ${event.status}`;
 
         // Update scores
-        document.getElementById(`team${matchNum * 2 - 1}-score`).textContent =
-          event.scores[0];
-        document.getElementById(`team${matchNum * 2}-score`).textContent =
-          event.scores[1];
+        document.getElementById('team1-score').textContent = event.scores[0];
+        document.getElementById('team2-score').textContent = event.scores[1];
 
         // Update last update time
         const now = new Date();
@@ -218,9 +132,9 @@
         currentEvents[matchIndex]++;
       }
 
-      // Randomly update one match every 15 seconds
+      // Update match every 15 seconds
       setInterval(() => {
-        const matchIndex = Math.floor(Math.random() * 3);
+        const matchIndex = 0;
         updateMatch(matchIndex);
       }, 15000);
 
