@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercise 3: Focus Styles - Web Accessibility Workshop</title>
+    <title>Focus Styles - Web Accessibility Workshop</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <a href="index.html" class="back-link">← Back to Home</a>
     <main>
-      <h1>Exercise 2: Focus Styles</h1>
+      <h1>Focus Styles</h1>
       <p>
         Visible focus indicators are crucial for keyboard users. In this
         exercise, you'll learn how to create clear, beautiful focus styles that
@@ -130,19 +130,27 @@
 
       .animated-focus:focus {
         outline: none;
-        box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563eb;
+        box-shadow:
+          0 0 0 2px #fff,
+          0 0 0 4px #2563eb;
         animation: focusPulse 1.5s infinite;
       }
 
       @keyframes focusPulse {
         0% {
-          box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563eb;
+          box-shadow:
+            0 0 0 2px #fff,
+            0 0 0 4px #2563eb;
         }
         50% {
-          box-shadow: 0 0 0 2px #fff, 0 0 0 6px rgba(37, 99, 235, 0.6);
+          box-shadow:
+            0 0 0 2px #fff,
+            0 0 0 6px rgba(37, 99, 235, 0.6);
         }
         100% {
-          box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563eb;
+          box-shadow:
+            0 0 0 2px #fff,
+            0 0 0 4px #2563eb;
         }
       }
 
@@ -164,7 +172,9 @@
 
       .demo-link:focus {
         outline: none;
-        box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563eb;
+        box-shadow:
+          0 0 0 2px #fff,
+          0 0 0 4px #2563eb;
         background: #eff6ff;
       }
 
@@ -186,7 +196,9 @@
       .demo-card:focus {
         outline: none;
         border-color: #2563eb;
-        box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563eb;
+        box-shadow:
+          0 0 0 2px #fff,
+          0 0 0 4px #2563eb;
         background: #eff6ff;
       }
 
