@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -85,8 +85,8 @@
       const getFocusableElements = () => {
         return Array.from(
           modal.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-          )
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+          ),
         );
       };
 

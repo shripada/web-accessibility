@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Démonstration de l'attribut Lang - Atelier d'Accessibilité Web
+    </title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    <main>
+      <h1>Exercice: Démonstration de l'attribut Lang</h1>
+      <p>
+        Cet exercice démontre l'importance cruciale de l'attribut
+        <code>lang</code> sur la balise HTML pour l'accessibilité. Cette page
+        contient du texte français, mais l'attribut lang est défini sur "en"
+        (anglais), ce qui peut créer des problèmes significatifs pour les
+        utilisateurs de lecteurs d'écran.
+      </p>
+
+      <section class="exercise-content">
+        <h2>Instructions</h2>
+        <ol>
+          <li>
+            Écoutez cette page avec un lecteur d'écran (NVDA, JAWS, VoiceOver,
+            etc.)
+          </li>
+          <li>
+            Remarquez comment le texte français est lu avec une prononciation
+            anglaise
+          </li>
+          <li>
+            Comparez cela avec une version correctement étiquetée en français
+          </li>
+          <li>Remplissez le formulaire ci-dessous et écoutez les labels</li>
+        </ol>
+
+        <h2>Formulaire de Contact</h2>
+        <form class="form-demo">
+          <div class="form-group">
+            <label for="nom">Nom complet:</label>
+            <input type="text" id="nom" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Adresse e-mail:</label>
+            <input type="email" id="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="telephone">Numéro de téléphone:</label>
+            <input type="tel" id="telephone" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Votre message:</label>
+            <textarea id="message" rows="5" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="sujet">Sujet:</label>
+            <select id="sujet">
+              <option value="">Sélectionnez un sujet</option>
+              <option value="general">Demande générale</option>
+              <option value="support">Support technique</option>
+              <option value="accessibilite">Accessibilité</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+
+          <button type="submit" class="button button-primary">Envoyer</button>
+          <button type="reset" class="button">Réinitialiser</button>
+        </form>
+
+        <h2>Points Clés à Considérer</h2>
+        <ul>
+          <li>
+            <strong>Prononciation incorrecte:</strong> Les lecteurs d'écran
+            utiliseront des règles de prononciation anglaises pour le texte
+            français
+          </li>
+          <li>
+            <strong>Hyphenation:</strong> La césure (hyphenation) des mots peut
+            être incorrecte
+          </li>
+          <li>
+            <strong>Reconnaissance vocale:</strong> Les utilisateurs utilisant
+            la reconnaissance vocale auront du mal à interagir avec la page
+          </li>
+          <li>
+            <strong>Vérification orthographique:</strong> Le navigateur marquera
+            probablement les mots français comme des erreurs d'orthographe
+          </li>
+          <li>
+            <strong>Guillemets et ponctuation:</strong> Les guillemets
+            typographiques français (« ») peuvent ne pas s'afficher correctement
+          </li>
+        </ul>
+
+        <h2>Testez avec un Lecteur d'Écran</h2>
+        <p>
+          Utilisez votre lecteur d'écran préféré pour explorer cette page et
+          remarquez comment chaque mot français est prononcé avec un accent
+          anglais. C'est l'anomalie qu'une balise HTML avec
+          <code>lang="en"</code> pour du contenu français crée.
+        </p>
+
+        <h2>Pourquoi c'est Important?</h2>
+        <p>
+          L'attribut <code>lang</code> est essentiel pour l'accessibilité Web
+          parce qu'il indique au lecteur d'écran la langue du contenu. Sans cet
+          attribut correct, les personnes en situation de handicap ne peuvent
+          pas accéder au contenu de manière efficace et inclusive.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      const form = document.querySelector('.form-demo');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert(
+          "Formulaire soumis! Remarquez comment les mots français sont lus avec une prononciation anglaise par votre lecteur d'écran.",
+        );
+      });
+    </script>
+  </body>
+</html>
