@@ -1,0 +1,23 @@
+name: Lighthouse Audit
+
+on:
+  pull_request:
+    paths:
+      - '*.html'
+      - 'style.css'
+  push:
+    branches:
+      - main
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          configPath: './.github/lighthouserc.json'

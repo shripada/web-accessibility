@@ -1,0 +1,22 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./",
+      "url": [
+        "http://localhost:8000/index.html",
+        "http://localhost:8000/screen-reader.html",
+        "http://localhost:8000/focus-styles.html",
+        "http://localhost:8000/tab-trapping.html",
+        "http://localhost:8000/color-contrast.html",
+        "http://localhost:8000/aria.html",
+        "http://localhost:8000/accessibility-audit.html"
+      ]
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    },
+    "assert": {
+      "preset": "lighthouse:recommended"
+    }
+  }
+}
