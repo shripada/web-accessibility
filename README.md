@@ -41,3 +41,17 @@ python -m SimpleHTTPServer 8000
 - Tab Trapping and Keyboard Navigation
 - ARIA Labels and Roles
 - Accessibility Audits
+
+## Running lighthouse
+
+We can restrict lighthouse only to profile for a specific category.
+
+```
+lighthouse http://127.0.0.1:8080 --only-categories=accessibility
+```
+
+## Running unlighthouse
+
+```
+unlighthouse-ci --site http://127.0.0.1:8080 --budget 75 --build-static
+```

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alt Text and Accessibility Demo</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .decorative-divider {
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, #e0e0e0, #bdbdbd, #e0e0e0);
+        margin: 20px 0;
+      }
+
+      .dog-image {
+        max-width: 400px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .icon-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 15px;
+        background: #0066cc;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        margin: 10px 0;
+      }
+
+      .icon-link svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      .icon-only-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #0066cc;
+        color: white;
+        text-decoration: none;
+        border-radius: 50%;
+        margin: 10px;
+      }
+
+      .icon-only-link svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      .empty-button {
+        width: 100px;
+        height: 40px;
+        background: #0066cc;
+        border: none;
+        border-radius: 4px;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      .button-good {
+        width: auto;
+        padding: 10px 20px;
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="back-link">← Back to Home</a>
+    <main>
+      <h1>Alt Text Demo</h1>
+
+      <h2>Decorative Image with Empty Alt</h2>
+      <img
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='3'%3E%3Crect width='100' height='3' fill='%23e0e0e0'/%3E%3C/svg%3E"
+        alt=""
+        class="decorative-divider"
+      />
+
+      <h2>Dog Image with Alt Text</h2>
+      <img
+        src="https://images.dog.ceo/breeds/bakharwal-indian/Bakharwal.jpg"
+        alt="A Bakharwal Indian dog with thick white and brown fur sitting outdoors on grass"
+        class="dog-image"
+      />
+
+      <h2>Dog Image Without Alt</h2>
+      <img
+        src="https://images.dog.ceo/breeds/bakharwal-indian/Bakharwal.jpg"
+        class="dog-image"
+      />
+
+      <h2>Link with Icon and Text</h2>
+      <a href="#" class="icon-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </svg>
+        Go to Home
+      </a>
+
+      <h2>Link with Icon Only (No Text)</h2>
+      <a href="#" class="icon-only-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+      </a>
+
+      <h2>Link with Icon and Aria Label</h2>
+      <a href="#" class="icon-only-link" aria-label="Add new item">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+      </a>
+
+      <h2>Empty Button</h2>
+      <button class="empty-button"></button>
+
+      <h2>Button with Text</h2>
+      <button class="button-good">Submit Form</button>
+
+      <h2>Icon Button with Aria Label</h2>
+      <button class="icon-only-link" aria-label="Close dialog">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+      </button>
+    </main>
+  </body>
+</html>

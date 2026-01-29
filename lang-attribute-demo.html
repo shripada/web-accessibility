@@ -1,118 +1,110 @@
 <!doctype html>
-<html lang="fr">
+<html lang="hi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Démonstration de l'attribut Lang - Atelier d'Accessibilité Web
-    </title>
+    <title>Lang विशेषता प्रदर्शन - वेब अभिगम्यता कार्यशाला</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    <a href="index.html" class="back-link">← मुख्य पृष्ठ पर वापस जाएं</a>
     <main>
-      <h1>Exercice: Démonstration de l'attribut Lang</h1>
+      <h1>अभ्यास: Lang विशेषता प्रदर्शन</h1>
       <p>
-        Cet exercice démontre l'importance cruciale de l'attribut
-        <code>lang</code> sur la balise HTML pour l'accessibilité. Cette page
-        contient du texte français, mais l'attribut lang est défini sur "en"
-        (anglais), ce qui peut créer des problèmes significatifs pour les
-        utilisateurs de lecteurs d'écran.
+        यह अभ्यास अभिगम्यता के लिए HTML टैग पर
+        <code>lang</code> विशेषता के महत्वपूर्ण महत्व को प्रदर्शित करता है। इस
+        पृष्ठ में हिंदी पाठ है, लेकिन lang विशेषता "en" (अंग्रेज़ी) पर सेट है,
+        जो स्क्रीन रीडर उपयोगकर्ताओं के लिए महत्वपूर्ण समस्याएं पैदा कर सकती है।
       </p>
 
       <section class="exercise-content">
-        <h2>Instructions</h2>
+        <h2>निर्देश</h2>
         <ol>
           <li>
-            Écoutez cette page avec un lecteur d'écran (NVDA, JAWS, VoiceOver,
-            etc.)
+            स्क्रीन रीडर (NVDA, JAWS, VoiceOver, आदि) के साथ इस पृष्ठ को सुनें
           </li>
           <li>
-            Remarquez comment le texte français est lu avec une prononciation
-            anglaise
+            ध्यान दें कि हिंदी पाठ को अंग्रेज़ी उच्चारण के साथ कैसे पढ़ा जाता है
           </li>
-          <li>
-            Comparez cela avec une version correctement étiquetée en français
-          </li>
-          <li>Remplissez le formulaire ci-dessous et écoutez les labels</li>
+          <li>इसकी तुलना सही तरीके से हिंदी में लेबल किए गए संस्करण से करें</li>
+          <li>नीचे दिए गए फ़ॉर्म को भरें और लेबल सुनें</li>
         </ol>
 
-        <h2>Formulaire de Contact</h2>
+        <h2>संपर्क फ़ॉर्म</h2>
         <form class="form-demo">
           <div class="form-group">
-            <label for="nom">Nom complet:</label>
+            <label for="nom">पूरा नाम:</label>
             <input type="text" id="nom" required />
           </div>
 
           <div class="form-group">
-            <label for="email">Adresse e-mail:</label>
+            <label for="email">ईमेल पता:</label>
             <input type="email" id="email" required />
           </div>
 
           <div class="form-group">
-            <label for="telephone">Numéro de téléphone:</label>
+            <label for="telephone">फ़ोन नंबर:</label>
             <input type="tel" id="telephone" />
           </div>
 
           <div class="form-group">
-            <label for="message">Votre message:</label>
+            <label for="message">आपका संदेश:</label>
             <textarea id="message" rows="5" required></textarea>
           </div>
 
           <div class="form-group">
-            <label for="sujet">Sujet:</label>
+            <label for="sujet">विषय:</label>
             <select id="sujet">
-              <option value="">Sélectionnez un sujet</option>
-              <option value="general">Demande générale</option>
-              <option value="support">Support technique</option>
-              <option value="accessibilite">Accessibilité</option>
-              <option value="autre">Autre</option>
+              <option value="">एक विषय चुनें</option>
+              <option value="general">सामान्य पूछताछ</option>
+              <option value="support">तकनीकी सहायता</option>
+              <option value="accessibilite">अभिगम्यता</option>
+              <option value="autre">अन्य</option>
             </select>
           </div>
 
-          <button type="submit" class="button button-primary">Envoyer</button>
-          <button type="reset" class="button">Réinitialiser</button>
+          <button type="submit" class="button button-primary">भेजें</button>
+          <button type="reset" class="button">रीसेट करें</button>
         </form>
 
-        <h2>Points Clés à Considérer</h2>
+        <h2>विचार करने योग्य मुख्य बिंदु</h2>
         <ul>
           <li>
-            <strong>Prononciation incorrecte:</strong> Les lecteurs d'écran
-            utiliseront des règles de prononciation anglaises pour le texte
-            français
+            <strong>गलत उच्चारण:</strong> स्क्रीन रीडर हिंदी पाठ के लिए
+            अंग्रेज़ी उच्चारण नियमों का उपयोग करेंगे
           </li>
           <li>
-            <strong>Hyphenation:</strong> La césure (hyphenation) des mots peut
-            être incorrecte
+            <strong>हाइफ़नेशन:</strong> शब्दों का हाइफ़नेशन (विभाजन) गलत हो सकता
+            है
           </li>
           <li>
-            <strong>Reconnaissance vocale:</strong> Les utilisateurs utilisant
-            la reconnaissance vocale auront du mal à interagir avec la page
+            <strong>वॉइस रिकग्निशन:</strong> वॉइस रिकग्निशन का उपयोग करने वाले
+            उपयोगकर्ताओं को पृष्ठ के साथ इंटरैक्ट करने में कठिनाई होगी
           </li>
           <li>
-            <strong>Vérification orthographique:</strong> Le navigateur marquera
-            probablement les mots français comme des erreurs d'orthographe
+            <strong>वर्तनी जांच:</strong> ब्राउज़र संभवतः हिंदी शब्दों को वर्तनी
+            त्रुटियों के रूप में चिह्नित करेगा
           </li>
           <li>
-            <strong>Guillemets et ponctuation:</strong> Les guillemets
-            typographiques français (« ») peuvent ne pas s'afficher correctement
+            <strong>उद्धरण चिह्न और विराम चिह्न:</strong> हिंदी टाइपोग्राफिक
+            उद्धरण चिह्न सही ढंग से प्रदर्शित नहीं हो सकते हैं
           </li>
         </ul>
 
-        <h2>Testez avec un Lecteur d'Écran</h2>
+        <h2>स्क्रीन रीडर के साथ परीक्षण करें</h2>
         <p>
-          Utilisez votre lecteur d'écran préféré pour explorer cette page et
-          remarquez comment chaque mot français est prononcé avec un accent
-          anglais. C'est l'anomalie qu'une balise HTML avec
-          <code>lang="en"</code> pour du contenu français crée.
+          इस पृष्ठ को एक्सप्लोर करने के लिए अपने पसंदीदा स्क्रीन रीडर का उपयोग
+          करें और ध्यान दें कि प्रत्येक हिंदी शब्द को अंग्रेज़ी उच्चारण के साथ
+          कैसे बोला जाता है। यह वह विसंगति है जो हिंदी सामग्री के लिए
+          <code>lang="en"</code> के साथ HTML टैग बनाता है।
         </p>
 
-        <h2>Pourquoi c'est Important?</h2>
+        <h2>यह क्यों महत्वपूर्ण है?</h2>
         <p>
-          L'attribut <code>lang</code> est essentiel pour l'accessibilité Web
-          parce qu'il indique au lecteur d'écran la langue du contenu. Sans cet
-          attribut correct, les personnes en situation de handicap ne peuvent
-          pas accéder au contenu de manière efficace et inclusive.
+          <code>lang</code> विशेषता वेब अभिगम्यता के लिए आवश्यक है क्योंकि यह
+          स्क्रीन रीडर को सामग्री की भाषा बताती है। इस सही विशेषता के बिना,
+          विकलांग व्यक्ति प्रभावी और समावेशी तरीके से सामग्री तक नहीं पहुंच
+          सकते।
         </p>
       </section>
     </main>
@@ -122,7 +114,7 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         alert(
-          "Formulaire soumis! Remarquez comment les mots français sont lus avec une prononciation anglaise par votre lecteur d'écran.",
+          'फ़ॉर्म सबमिट हो गया! ध्यान दें कि आपका स्क्रीन रीडर हिंदी शब्दों को अंग्रेज़ी उच्चारण के साथ कैसे पढ़ता है।',
         );
       });
     </script>

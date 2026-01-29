@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Contrast Issues - Accessibility Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #ffffff;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .intro {
+        color: #666;
+        margin-bottom: 40px;
+        padding: 20px;
+        background: #f5f5f5;
+        border-left: 4px solid #333;
+      }
+
+      .section {
+        margin-bottom: 50px;
+        padding: 30px;
+        background: #fafafa;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+
+      .section h2 {
+        color: #333;
+        margin-top: 0;
+        font-size: 24px;
+      }
+
+      .contrast-ratio {
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 15px;
+      }
+
+      /* Poor Contrast Examples */
+
+      /* Normal text - violates AA (4.5:1) */
+      .poor-normal-text-1 {
+        color: #999999;
+        background: #ffffff;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      .poor-normal-text-2 {
+        color: #ffff00;
+        background: #ffffff;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      .poor-normal-text-3 {
+        color: #d3d3d3;
+        background: #ffffff;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      .poor-normal-text-4 {
+        color: #87ceeb;
+        background: #ffffff;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      /* Large text - violates AA (3:1) */
+      .poor-large-text-1 {
+        color: #bbbbbb;
+        background: #ffffff;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .poor-large-text-2 {
+        color: #ffa500;
+        background: #ffffe0;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 20px;
+      }
+
+      .poor-large-text-3 {
+        color: #ffc0cb;
+        background: #ffffff;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      /* Buttons with poor border contrast */
+      .button-container {
+        background: #f0f0f0;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      .poor-button-1 {
+        background: #ffffff;
+        border: 2px solid #e0e0e0;
+        color: #333;
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 10px;
+      }
+
+      .poor-button-2 {
+        background: #f5f5f5;
+        border: 2px solid #dddddd;
+        color: #999999;
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 10px;
+      }
+
+      .poor-button-3 {
+        background: #fffacd;
+        border: 3px solid #ffffe0;
+        color: #ffd700;
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 10px;
+      }
+
+      .dark-bg-section {
+        background: #2c2c2c;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      .poor-dark-text-1 {
+        color: #444444;
+        background: #2c2c2c;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      .poor-dark-text-2 {
+        color: #555555;
+        background: #333333;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 18px;
+      }
+
+      .poor-dark-button {
+        background: #3a3a3a;
+        border: 2px solid #4a4a4a;
+        color: #666666;
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 10px 0;
+      }
+
+      .link-examples {
+        background: #ffffff;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .poor-link-1 {
+        color: #cccccc;
+        text-decoration: underline;
+        font-size: 16px;
+      }
+
+      .poor-link-2 {
+        color: #b0b0b0;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      .note {
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        color: #856404;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      .note strong {
+        display: block;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="back-link">← Back to Home</a>
+    <h1>Color Contrast Issues Demo</h1>
+
+    <div class="intro">
+      <p>
+        <strong>Purpose:</strong> This page demonstrates common color contrast
+        accessibility violations.
+      </p>
+      <p>
+        These examples intentionally violate WCAG AA guidelines (4.5:1 for
+        normal text, 3:1 for large text and UI components).
+      </p>
+      <p>
+        <strong>Use this page to:</strong> Test with accessibility tools, screen
+        readers, or try viewing with different visual conditions.
+      </p>
+    </div>
+
+    <!-- Normal Text Violations -->
+    <div class="section">
+      <h2>Normal Text - AA Violations (Need 4.5:1)</h2>
+
+      <div class="poor-normal-text-1">
+        <p><strong>Light Gray on White (Contrast: ~2.8:1)</strong></p>
+        <p>
+          This text uses #999999 on #ffffff background. This is very hard to
+          read for people with low vision or color blindness. The contrast ratio
+          fails WCAG AA standards significantly.
+        </p>
+      </div>
+
+      <div class="poor-normal-text-2">
+        <p><strong>Yellow on White (Contrast: ~1.07:1)</strong></p>
+        <p>
+          This bright yellow text (#ffff00) on white is nearly impossible to
+          read. This is one of the worst possible color combinations for
+          accessibility.
+        </p>
+      </div>
+
+      <div class="poor-normal-text-3">
+        <p><strong>Very Light Gray on White (Contrast: ~1.6:1)</strong></p>
+        <p>
+          This text uses #d3d3d3 on white. Many users, especially those with
+          visual impairments, will struggle to read this content.
+        </p>
+      </div>
+
+      <div class="poor-normal-text-4">
+        <p><strong>Sky Blue on White (Contrast: ~2.1:1)</strong></p>
+        <p>
+          This light blue text (#87ceeb) fails to meet minimum contrast
+          requirements. It's especially problematic for users with color vision
+          deficiencies.
+        </p>
+      </div>
+    </div>
+
+    <!-- Large Text Violations -->
+    <div class="section">
+      <h2>Large Text - AA Violations (Need 3:1)</h2>
+
+      <div class="poor-large-text-1">
+        Large Bold Text with Poor Contrast (#bbbbbb on #ffffff - Contrast:
+        ~1.9:1)
+      </div>
+      <div class="contrast-ratio">
+        This large text still fails AA standards despite being bigger and bold.
+      </div>
+
+      <div class="poor-large-text-2">
+        Orange on Light Yellow Background (Contrast: ~1.4:1)
+      </div>
+      <div class="contrast-ratio">
+        Even though this is large text, the contrast is far too low.
+      </div>
+
+      <div class="poor-large-text-3">
+        Pink Text on White Background (Contrast: ~1.95:1)
+      </div>
+      <div class="contrast-ratio">
+        Pink (#ffc0cb) lacks sufficient contrast even for large text.
+      </div>
+    </div>
+
+    <!-- Button Border Violations -->
+    <div class="section">
+      <h2>Buttons with Poor Border Contrast</h2>
+
+      <div class="button-container">
+        <p style="color: #333; margin-bottom: 20px">
+          <strong
+            >Light gray background with buttons that have borders barely
+            visible:</strong
+          >
+        </p>
+
+        <button class="poor-button-1">
+          Button with Light Gray Border (Contrast: ~1.2:1)
+        </button>
+        <div class="contrast-ratio">
+          Border #e0e0e0 on #f0f0f0 background - nearly invisible
+        </div>
+
+        <button class="poor-button-2">
+          Low Contrast Button (Border & Text)
+        </button>
+        <div class="contrast-ratio">
+          Border #dddddd on #f0f0f0 + gray text - multiple violations
+        </div>
+
+        <button class="poor-button-3">Yellow on Yellow Button</button>
+        <div class="contrast-ratio">
+          Border #ffffe0 on #fffacd background with #ffd700 text - everything
+          blends together
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Note:</strong>
+        UI components like buttons, form inputs, and focus indicators need at
+        least 3:1 contrast ratio against adjacent colors per WCAG 2.1 AA
+        (Success Criterion 1.4.11).
+      </div>
+    </div>
+
+    <!-- Dark Background Violations -->
+    <div class="section">
+      <h2>Dark Background Violations</h2>
+
+      <div class="dark-bg-section">
+        <div class="poor-dark-text-1">
+          Dark Gray Text on Darker Gray Background (Contrast: ~1.5:1) - This
+          text is very difficult to read.
+        </div>
+
+        <div class="poor-dark-text-2">
+          Slightly Lighter but Still Poor Contrast (Contrast: ~1.8:1) - Still
+          fails accessibility standards.
+        </div>
+
+        <button class="poor-dark-button">
+          Dark Button with Poor Border Contrast
+        </button>
+        <div class="contrast-ratio" style="color: #999">
+          Border and text both fail contrast requirements
+        </div>
+      </div>
+    </div>
+
+    <!-- Link Violations -->
+    <div class="section">
+      <h2>Link Contrast Issues</h2>
+
+      <div class="link-examples">
+        <p style="color: #333">
+          This paragraph contains
+          <a href="#" class="poor-link-1">a link with very poor contrast</a>
+          that is hard to distinguish from regular text.
+        </p>
+
+        <p style="color: #333">
+          Another example with
+          <a href="#" class="poor-link-2"
+            >a link that has no underline and poor contrast</a
+          >
+          making it nearly impossible to identify as clickable.
+        </p>
+      </div>
+
+      <div class="note">
+        <strong>Note:</strong>
+        Links must be distinguishable from surrounding text by more than just
+        color. If relying on color alone, the contrast difference should be at
+        least 3:1, plus a non-color indicator (like underline) should appear on
+        focus/hover.
+      </div>
+    </div>
+
+    <div class="intro">
+      <p><strong>Testing Tools:</strong></p>
+      <ul>
+        <li>Use browser DevTools (Lighthouse, Accessibility panel)</li>
+        <li>Try the WAVE browser extension</li>
+        <li>Use color contrast analyzers like WebAIM's Contrast Checker</li>
+        <li>Test with different display settings and color filters</li>
+        <li>Simulate color blindness to see the real impact</li>
+      </ul>
+    </div>
+  </body>
+</html>

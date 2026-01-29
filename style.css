@@ -466,19 +466,6 @@ article {
   width: 40%;
 }
 
-.instructions table td:first-child {
-  width: 20%;
-}
-
-.instructions table td:nth-child(2) {
-  width: 40%;
-  white-space: nowrap;
-}
-
-.instructions table td:nth-child(3) {
-  width: 40%;
-}
-
 .instructions table td {
   padding: 1rem;
   border-bottom: 1px solid #dee2e6;
@@ -486,6 +473,22 @@ article {
   text-align: left;
   word-break: keep-all;
   overflow-wrap: normal;
+  white-space: nowrap;
+}
+
+.instructions table td:first-child {
+  width: 20%;
+}
+
+.instructions table td:nth-child(2) {
+  width: 40%;
+}
+
+.instructions table td:nth-child(3) {
+  width: 40%;
+  white-space: normal !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .instructions table tbody tr {
